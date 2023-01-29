@@ -1,4 +1,4 @@
-package br.com.dsmeta;
+package br.com.dsmeta.dsmeta;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

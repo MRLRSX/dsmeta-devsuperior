@@ -1,4 +1,4 @@
-package br.com.dsmeta.config;
+package br.com.dsmeta.dsmeta.config;
 
 
 import org.springframework.context.annotation.Bean;

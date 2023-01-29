@@ -1,7 +1,7 @@
-package br.com.dsmeta.service;
+package br.com.dsmeta.dsmeta.service;
 
-import br.com.dsmeta.entities.Sale;
-import br.com.dsmeta.repositories.SaleRepository;
+import br.com.dsmeta.dsmeta.entities.Sale;
+import br.com.dsmeta.dsmeta.repositories.SaleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

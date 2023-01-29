@@ -1,4 +1,4 @@
-package br.com.dsmeta.entities;
+package br.com.dsmeta.dsmeta.entities;
 
 import jakarta.persistence.*;
 

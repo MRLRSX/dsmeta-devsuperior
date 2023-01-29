@@ -1,6 +1,6 @@
-package br.com.dsmeta.repositories;
+package br.com.dsmeta.dsmeta.repositories;
 
-import br.com.dsmeta.entities.Sale;
+import br.com.dsmeta.dsmeta.entities.Sale;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
