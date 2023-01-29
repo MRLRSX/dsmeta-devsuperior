@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name="tb_sales")
-public class Sales implements Serializable {
+public class Sale implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -21,9 +21,9 @@ public class Sales implements Serializable {
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private LocalDate date;
 
-    public Sales(){}
+    public Sale(){}
 
-    public Sales(Long id, String sellerName, Integer visited, Integer deals, Double amount, LocalDate date) {
+    public Sale(Long id, String sellerName, Integer visited, Integer deals, Double amount, LocalDate date) {
         this.id = id;
         this.sellerName = sellerName;
         this.visited = visited;
@@ -83,7 +83,7 @@ public class Sales implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Sales sales)) return false;
+        if (!(o instanceof Sale sales)) return false;
         return Objects.equals(id, sales.id);
     }
 

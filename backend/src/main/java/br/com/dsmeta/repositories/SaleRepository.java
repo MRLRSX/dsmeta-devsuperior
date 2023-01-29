@@ -1,6 +1,6 @@
 package br.com.dsmeta.repositories;
 
-import br.com.dsmeta.entities.Sales;
+import br.com.dsmeta.entities.Sale;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,8 +10,8 @@ import org.springframework.stereotype.Repository;
 import java.time.LocalDate;
 
 @Repository
-public interface SaleRepository extends JpaRepository<Sales, Long> {
+public interface SaleRepository extends JpaRepository<Sale, Long> {
 
     @Query("SELECT obj FROM Sale obj WHERE obj.date BETWEEN :min AND :max ORDER BY obj.amount DESC")
-    Page<Sales> findSales(LocalDate min, LocalDate max, Pageable pageable);
+    Page<Sale> findSales(LocalDate min, LocalDate max, Pageable pageable);
 }

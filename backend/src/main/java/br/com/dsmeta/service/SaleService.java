@@ -1,6 +1,6 @@
 package br.com.dsmeta.service;
 
-import br.com.dsmeta.entities.Sales;
+import br.com.dsmeta.entities.Sale;
 import br.com.dsmeta.repositories.SaleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -16,7 +16,7 @@ public class SaleService {
    @Autowired
    private SaleRepository saleRepository;
 
-    public Page<Sales> findSales(String minDate, String maxDate, Pageable pageable) {
+    public Page<Sale> findSales(String minDate, String maxDate, Pageable pageable) {
 
         LocalDate today = LocalDate.ofInstant(Instant.now(), ZoneId.systemDefault());
 
