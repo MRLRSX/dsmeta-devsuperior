@@ -2,6 +2,7 @@ package br.com.dsmeta.dsmeta.service;
 
 import br.com.dsmeta.dsmeta.entities.Sale;
 import br.com.dsmeta.dsmeta.repositories.SaleRepository;
+import br.com.dsmeta.dsmeta.service.exceptions.SmsException;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
@@ -28,19 +29,24 @@ public class SmsServices {
     private SaleRepository saleRepository;
 
     public void sendSms(Long saleId) {
-        Sale sale = saleRepository.findById(saleId).get();
 
-        String date = sale.getDate().getMonthValue() + "/" + sale.getDate().getYear();
+        try {
+            Sale sale = saleRepository.findById(saleId).get();
 
-        String msg = "O vendedor " + sale.getSellerName() + " foi destaque em " + date
-                + " com um total de R$ " + String.format("%.2f", sale.getAmount());
+            String date = sale.getDate().getMonthValue() + "/" + sale.getDate().getYear();
 
-        Twilio.init(twilioSid, twilioKey);
+            String msg = "O vendedor " + sale.getSellerName() + " foi destaque em " + date
+                    + " com um total de R$ " + String.format("%.2f", sale.getAmount());
 
-        PhoneNumber to = new PhoneNumber(twilioPhoneTo);
-        PhoneNumber from = new PhoneNumber(twilioPhoneFrom);
+            Twilio.init(twilioSid, twilioKey);
 
-        Message message = Message.creator(to, from, msg).create();
+            PhoneNumber to = new PhoneNumber(twilioPhoneTo);
+            PhoneNumber from = new PhoneNumber(twilioPhoneFrom);
 
-        System.out.println(message.getSid());
+            Message message = Message.creator(to, from, msg).create();
+
+        }catch(Exception erro){
+            throw new SmsException(erro.getMessage());
+        }
     }
+}
